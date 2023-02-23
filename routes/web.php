@@ -21,3 +21,5 @@ Route::get('/fumetti', function () {
     $comics = config('db');
     return view('fumetti', compact('comics'));
 })->name('comics');
+
+Route::get('/', 'ComicController@index')->name('homepage');
