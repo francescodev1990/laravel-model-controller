@@ -14,13 +14,21 @@ use App\Http\Controllers\ComicController as ComicController;
 |
 */
 
+
 Route::get('/', function () {
     return view('home');
 });
 
+
+// RECUPERO I FUMETTI
+Route::get('/', 'ComicController@index')->name('homepage');
+
 Route::get('/fumetti', function () {
     $comics = config('db');
+
     return view('fumetti', compact('comics'));
 })->name('comics');
 
-Route::get('/', 'ComicController@index')->name('homepage');
+Route::get('/fumetto/{titolo}', function ($titolo) {
+    $comics = config('db');
+});
